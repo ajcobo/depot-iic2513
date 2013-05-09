@@ -1,0 +1,12 @@
+//#START_HIGHLIGHT
+// Si existe un carrito anteriormente, hace un efecto de aparicion
+if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
+
+//#END_HIGHLIGHT
+// Esto es lo que inserta el codigo html del carrito, a traves de un partial en app/views/carts/_cart.html.erb
+// j es un metodo para prevenir que se ejecute codigo JS malicioso
+$('#cart').html("<%=j render @cart %>");
+
+// Esto inserta estilo directamente en el tag con id=current_item
+$('#current_item').css({'background-color':'#88ff88'}).
+  animate({'background-color':'#114411'}, 1000);
