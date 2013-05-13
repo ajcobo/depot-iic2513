@@ -1,6 +1,7 @@
-== Depot IIC2513
+Depot IIC2513
+========
 
-To-do:
+## To-do
 
 1. Partials - `Sebastián & Alfredo`
 2. Remote - `Alfredo`
