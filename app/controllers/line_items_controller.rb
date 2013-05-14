@@ -32,6 +32,10 @@ class LineItemsController < ApplicationController
   # GET /line_items/new
   # GET /line_items/new.json
   def new
+    #por simplicidad
+    @cart = current_cart
+    @products = Product.all
+
     @line_item = LineItem.new
 
     respond_to do |format|
@@ -49,7 +53,14 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     @cart = current_cart
-    product = Product.find(params[:product_id])
+
+    if request.format == 'js'
+      product = Product.find(params[:product_id])
+      
+    else
+      product = Product.find(params[:line_item][:product_id])
+      #@line_item = LineItem.new(params[:line_item])
+    end
     @line_item = @cart.add_product(product.id)
     @line_item.product = product
 

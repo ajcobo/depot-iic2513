@@ -15,6 +15,7 @@
 
 <!-- START_HIGHLIGHT -->
 <!-- Ejemplo para hacer remote: true (hacerlo) -->
-<%= button_to 'Empty cart', cart, method: :delete,
+<%= button_to 'Empty cart', cart, method: :delete, remote: true, form:{:id => 'empty-cart','data-type' => 'json'},
 #END_HIGHLIGHT
     data: { confirm: 'Are you sure?' } %>
+

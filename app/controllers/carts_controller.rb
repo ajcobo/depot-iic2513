@@ -91,7 +91,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to store_url }
-      format.json { head :no_content }
+      format.json { render json: "good!", status: :ok}
     end
   end
 end

@@ -13,11 +13,9 @@
 
   <div class="field">
     <%= f.label :product_id %><br />
-    <%= f.number_field :product_id %>
-  </div>
-  <div class="field">
-    <%= f.label :cart_id %><br />
-    <%= f.number_field :cart_id %>
+    <!-- collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {}) -->
+    <%= f.collection_select :product_id, @products, :id, :title, prompt: true %>
+    <%= f.hidden_field :cart_id, value: @cart.id %>
   </div>
   <div class="actions">
     <%= f.submit %>
