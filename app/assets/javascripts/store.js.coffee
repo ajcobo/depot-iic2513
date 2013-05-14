@@ -17,14 +17,10 @@ $ ->
     # Tenemos la URL, solo basta utilizarla
     url = $(this).closest('form').attr('action')
     url = url.replace(/\?/g, '.js?')
-    jq_add = $.ajax ({
+    a = $.ajax ({
       url: url,
-      method: 'POST'
+      method: 'POST',
     })
-    jq_add.done (data) ->
-      console.log('Cart updated')
-    jq_add.fail (data) ->
-      console.log('Cart not updated')
 
 updateCart = (data) ->
   if $('#cart tr').length is 1 then $('#cart').show('blind', 1000)
